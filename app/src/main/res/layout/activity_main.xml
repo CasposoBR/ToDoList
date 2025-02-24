@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:text="Adicionar"
         android:textSize="16sp"
-        android:backgroundTint="@color/blue"
+        android:backgroundTint="@color/orange"
         android:textColor="@android:color/white"
         android:padding="12dp"
         app:layout_constraintEnd_toEndOf="parent"
