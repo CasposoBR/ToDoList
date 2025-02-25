@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:hint="Digite uma nova tarefa"
         android:padding="12dp"
-        android:textColor="@android:color/black"
+        android:textColor="@color/textColor"
         android:background="@android:color/white"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"

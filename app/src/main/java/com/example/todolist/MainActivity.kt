@@ -19,7 +19,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // Configura o Adapter e o RecyclerView
-        adapter = PostListAdapter(mutableListOf())
+        adapter = PostListAdapter(mutableListOf()) { task ->
+            toDoViewModel.removeTask(task)
+        }
         binding.RecyclerViewTasks.layoutManager = LinearLayoutManager(this)
         binding.RecyclerViewTasks.adapter = adapter
 

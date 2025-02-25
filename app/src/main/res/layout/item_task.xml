@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:background="@color/gray"
+            android:background="@color/white"
             android:padding="8dp">
 
             <!-- Texto da tarefa -->
@@ -35,7 +35,7 @@
                 android:padding="16dp"
                 android:text="Tarefa"
                 android:textSize="18sp"
-                android:textColor="@android:color/white" />
+                android:textColor="@color/textColor" />
 
             <!-- Botão para marcar tarefa -->
             <Button
