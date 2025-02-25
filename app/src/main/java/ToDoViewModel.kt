@@ -1,33 +1,30 @@
 package com.example.todolist
 
+import TaskPreferences
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class ToDoViewModel : ViewModel() {
-    // LiveData para armazenar as tarefas
-    private val _toDoList = MutableLiveData<MutableList<String>>(mutableListOf())
-    val toDoList: MutableLiveData<MutableList<String>> = _toDoList
+class ToDoViewModel(application: Application) : AndroidViewModel(application) {
 
-    // Função para adicionar tarefa
+    private val taskPreferences = TaskPreferences(application)
+    private val _toDoList = MutableLiveData(taskPreferences.getTasks().toMutableList())
+    val toDoList: LiveData<MutableList<String>> = _toDoList
+
     fun addTask(task: String) {
-        val updatedList = _toDoList.value ?: mutableListOf()  // Garantir que sempre teremos uma lista
+        val updatedList = _toDoList.value ?: mutableListOf()
         updatedList.add(task)
-        _toDoList.value = updatedList // Atualiza a lista de tarefas
+        _toDoList.value = updatedList
+        taskPreferences.saveTasks(updatedList) // Salva a lista sempre que for alterada
     }
 
-    // Função para remover tarefa
     fun removeTask(task: String) {
-        val updatedList = _toDoList.value ?: mutableListOf()  // Garantir que sempre teremos uma lista
+        val updatedList = _toDoList.value ?: mutableListOf()
         updatedList.remove(task)
         _toDoList.value = updatedList
-    }
-
-    // Função para marcar a tarefa como concluída
-    fun markTaskAsCompleted(task: String) {
-        val updatedList = _toDoList.value?.map {
-            if (it == task) "✅ $it" else it
-        }?.toMutableList() ?: mutableListOf()  // Garante que não será nulo
-        _toDoList.value = updatedList
+        taskPreferences.saveTasks(updatedList) // Salva a lista após remoção
     }
 }
 

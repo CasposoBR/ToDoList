@@ -52,6 +52,7 @@ android {
 
 dependencies {
 
+    implementation (libs.gson)
     //adicionar RecyclerView
     implementation (libs.androidx.recyclerview)
     // ViewModel
