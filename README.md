@@ -26,6 +26,15 @@ Utiliza arquitetura MVVM básica:
 - `ToDoViewModel.kt`: controla o estado da lista de tarefas.
 - `SharedPreferences`: armazena as tarefas localmente em formato de texto.
 
+
+
+
+FOTOS DO APP
+![1743208065984](https://github.com/user-attachments/assets/e5695c7a-201c-490e-a2eb-4c3b164b5e07)
+
+
+
+
 ## 📦 Como Executar
 
 1. Clone o repositório:
